@@ -28,23 +28,27 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
         super(fm);
     }
 
+    private String tabTitles[] = new String[] { "Tab1", "Tab2", "Tab3" };
+
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
             return new MondayFragment();
         } else if (position == 1){
             return new TuesdayFragment();
-        } else if (position == 2) {
-            return new WednesdayFragment();
-        } else if (position == 3) {
-            return new ThursdayFragment();
         } else {
-            return new FridayFragment();
+            return new WednesdayFragment();
         }
     }
 
     @Override
     public int getCount() {
-        return 5;
+        return 3;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        // Generate title based on item position
+        return tabTitles[position];
     }
 }
